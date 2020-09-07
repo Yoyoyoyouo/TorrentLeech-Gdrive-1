@@ -94,7 +94,7 @@ def add_magnet(aria_instance, magnetic_link, c_file_name):
 
 def add_torrent(aria_instance, torrent_file_path):
     if torrent_file_path is None:
-        return False, "**FAILED** \n" + str(e) + " \nsomething wrongings when trying to add <u>TORRENT</u> file"
+        return False, "**FAILED** \n" + str(e) + " \nsomething happend worng when trying to add <u>TORRENT</u> file. \n\n @AbirHasan2005 Please review this. \n"
     if os.path.exists(torrent_file_path):
         # Add Torrent Into Queue
         try:
@@ -240,7 +240,7 @@ async def call_apropriate_function(
             message_to_send += "</a>"
             message_to_send += "\n"
         if message_to_send != "":
-            mention_req_user = f"<a href='tg://user?id={user_id}'>Your Requested Files</a>\n\n"
+            mention_req_user = f"<a href='tg://user?id={user_id}'>Your Requested Files</a>\n\n@AbirHasan2005 Please Review them!"
             message_to_send = mention_req_user + message_to_send
             message_to_send = message_to_send + "\n\n" + "#uploads"
         else:
@@ -489,7 +489,7 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
     except RecursionError:
         file.remove(force=True)
         await event.edit(
-            "Download Auto Canceled :\n\n"
+            "Download Auto Canceled:\n\n"
             "Your Torrent/Link is Dead.".format(
                 file.name
             )
@@ -498,7 +498,7 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
     except Exception as e:
         LOGGER.info(str(e))
         if " not found" in str(e) or "'file'" in str(e):
-            await event.edit("Download Canceled :\n<code>{}</code>".format(file.name))
+            await event.edit("Download Canceled:\n<code>{}</code>".format(file.name))
             return False
         else:
             LOGGER.info(str(e))
