@@ -130,7 +130,7 @@ class CloneHelper:
             button.append(
                 [
                     pyrogram.InlineKeyboardButton(
-                        text="☁️ Drive URL ☁️",
+                        text="☁️ GDrive URL ☁️",
                         url=f"{gau_link}"
                     )
             ]
